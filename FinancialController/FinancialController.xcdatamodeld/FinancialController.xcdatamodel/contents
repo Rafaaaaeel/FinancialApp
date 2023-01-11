@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21279" systemVersion="22C5033e" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Debit" representedClassName="Debit" syncable="YES" codeGenerationType="class">
+        <attribute name="color" optional="YES" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="total" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <relationship name="payment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Payment" inverseName="debit" inverseEntity="Payment"/>
+    </entity>
+    <entity name="Payment" representedClassName="Payment" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="value" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <relationship name="debit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Debit" inverseName="payment" inverseEntity="Debit"/>
+    </entity>
+</model>
