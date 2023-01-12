@@ -7,13 +7,15 @@
 
 import UIKit
 
-class ColorsCell: UICollectionViewCell {
-    static var identifier = "ColorsCell"
+class OptionsCell: UICollectionViewCell {
+    static var identifier = "OptionsCell"
     
-    lazy var colorView: UIView = {
-        let view = UIView()
+    lazy var colorView: UIImageView = {
+        let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 20
+        view.clipsToBounds = true
+        view.contentMode = .scaleAspectFit
         return view
     }()
     
@@ -26,10 +28,16 @@ class ColorsCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureCell(color: UIColor) {
-        colorView.backgroundColor = color
-        
-
+    func configureCell(color: UIColor? = .clear, image: String? = nil) {
+        if let imageName = image {
+            let configuration = UIImage.SymbolConfiguration(scale: .small)
+            colorView.image = UIImage(systemName: imageName, withConfiguration: configuration)
+            colorView.tintColor = .darkGray
+            return
+        }
+        if let color = color {
+            colorView.backgroundColor = color
+        }
     }
 
     func selected() {
@@ -43,7 +51,7 @@ class ColorsCell: UICollectionViewCell {
     }
 }
 
-extension ColorsCell: CodableViews {
+extension OptionsCell: CodableViews {
     func setupHiearchy() {
         addSubview(colorView)
     }

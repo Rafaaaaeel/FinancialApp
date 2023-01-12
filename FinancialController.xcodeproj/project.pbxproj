@@ -24,6 +24,12 @@
 		27651B99296E433400C6107B /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FD1BAF296C5D960099F0FD /* Presenter.swift */; };
 		27651B9B296E43BD00C6107B /* RegisterDebitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27651B9A296E43BD00C6107B /* RegisterDebitViewController.swift */; };
 		27651B9D296E4AC400C6107B /* ColorsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27651B9C296E4AC400C6107B /* ColorsCell.swift */; };
+		27651BA2296F93FE00C6107B /* ColorsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27651BA1296F93FE00C6107B /* ColorsDataSource.swift */; };
+		27651BA4296F953A00C6107B /* ColorsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27651BA3296F953A00C6107B /* ColorsAdapter.swift */; };
+		27651BA6296F955F00C6107B /* ColorsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27651BA5296F955F00C6107B /* ColorsCollectionView.swift */; };
+		27651BAA296FA41800C6107B /* ImagesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27651BA9296FA41800C6107B /* ImagesCollectionView.swift */; };
+		27651BAC296FA44600C6107B /* ImagesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27651BAB296FA44600C6107B /* ImagesDataSource.swift */; };
+		27651BAE296FA4BD00C6107B /* ImageAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27651BAD296FA4BD00C6107B /* ImageAdapter.swift */; };
 		27FD1BA5296C5D600099F0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27FD1BA4296C5D600099F0FD /* Assets.xcassets */; };
 		27FD1BA8296C5D600099F0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27FD1BA6296C5D600099F0FD /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -40,6 +46,12 @@
 		27651B85296E421D00C6107B /* Payment+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Payment+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		27651B9A296E43BD00C6107B /* RegisterDebitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDebitViewController.swift; sourceTree = "<group>"; };
 		27651B9C296E4AC400C6107B /* ColorsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsCell.swift; sourceTree = "<group>"; };
+		27651BA1296F93FE00C6107B /* ColorsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsDataSource.swift; sourceTree = "<group>"; };
+		27651BA3296F953A00C6107B /* ColorsAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsAdapter.swift; sourceTree = "<group>"; };
+		27651BA5296F955F00C6107B /* ColorsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsCollectionView.swift; sourceTree = "<group>"; };
+		27651BA9296FA41800C6107B /* ImagesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionView.swift; sourceTree = "<group>"; };
+		27651BAB296FA44600C6107B /* ImagesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesDataSource.swift; sourceTree = "<group>"; };
+		27651BAD296FA4BD00C6107B /* ImageAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAdapter.swift; sourceTree = "<group>"; };
 		27C60C25296CF57E00B48BCE /* PaymentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsCell.swift; sourceTree = "<group>"; };
 		27C60C28296CFF1E00B48BCE /* Footer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Footer.swift; sourceTree = "<group>"; };
 		27FD1B95296C5D5E0099F0FD /* FinancialController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinancialController.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +113,53 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		27651B9E296F93A300C6107B /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				27651BA0296F93B400C6107B /* Collection */,
+				27651B9F296F93AA00C6107B /* Cell */,
+				27651B9A296E43BD00C6107B /* RegisterDebitViewController.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		27651B9F296F93AA00C6107B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				27651B9C296E4AC400C6107B /* ColorsCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		27651BA0296F93B400C6107B /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				27651BA8296FA3F400C6107B /* Images */,
+				27651BA7296FA3D300C6107B /* Colors */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		27651BA7296FA3D300C6107B /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				27651BA5296F955F00C6107B /* ColorsCollectionView.swift */,
+				27651BA1296F93FE00C6107B /* ColorsDataSource.swift */,
+				27651BA3296F953A00C6107B /* ColorsAdapter.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		27651BA8296FA3F400C6107B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				27651BA9296FA41800C6107B /* ImagesCollectionView.swift */,
+				27651BAB296FA44600C6107B /* ImagesDataSource.swift */,
+				27651BAD296FA4BD00C6107B /* ImageAdapter.swift */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		27C60C20296CF0F900B48BCE /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,10 +193,9 @@
 		27C60C23296CF11800B48BCE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				27651B9E296F93A300C6107B /* Register */,
 				27651B61296E35C100C6107B /* FinancialSelection */,
 				27651B5E296E358900C6107B /* Debits */,
-				27651B9A296E43BD00C6107B /* RegisterDebitViewController.swift */,
-				27651B9C296E4AC400C6107B /* ColorsCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -260,8 +318,11 @@
 			files = (
 				27651B8B296E433400C6107B /* Debit+CoreDataClass.swift in Sources */,
 				27651B8C296E433400C6107B /* Debit+CoreDataProperties.swift in Sources */,
+				27651BAC296FA44600C6107B /* ImagesDataSource.swift in Sources */,
 				27651B8D296E433400C6107B /* Payment+CoreDataClass.swift in Sources */,
 				27651B8E296E433400C6107B /* Payment+CoreDataProperties.swift in Sources */,
+				27651BAE296FA4BD00C6107B /* ImageAdapter.swift in Sources */,
+				27651BA2296F93FE00C6107B /* ColorsDataSource.swift in Sources */,
 				27651B8F296E433400C6107B /* CodableViews.swift in Sources */,
 				27651B90296E433400C6107B /* Extension.swift in Sources */,
 				27651B91296E433400C6107B /* AppDelegate.swift in Sources */,
@@ -274,7 +335,10 @@
 				27651B96296E433400C6107B /* Footer.swift in Sources */,
 				27651B97296E433400C6107B /* PaymentsCell.swift in Sources */,
 				27651B98296E433400C6107B /* ViewController.swift in Sources */,
+				27651BAA296FA41800C6107B /* ImagesCollectionView.swift in Sources */,
 				27651B99296E433400C6107B /* Presenter.swift in Sources */,
+				27651BA6296F955F00C6107B /* ColorsCollectionView.swift in Sources */,
+				27651BA4296F953A00C6107B /* ColorsAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
