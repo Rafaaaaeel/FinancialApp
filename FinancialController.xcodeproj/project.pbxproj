@@ -81,24 +81,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		27651B5E296E358900C6107B /* Debits */ = {
+		27651B5E296E358900C6107B /* Description */ = {
 			isa = PBXGroup;
 			children = (
 				27C60C27296CFF1600B48BCE /* Footer */,
 				27C60C24296CF57300B48BCE /* Cell */,
 				27FD1B9C296C5D5E0099F0FD /* ViewController.swift */,
 			);
-			path = Debits;
+			path = Description;
 			sourceTree = "<group>";
 		};
-		27651B61296E35C100C6107B /* FinancialSelection */ = {
+		27651B61296E35C100C6107B /* Debits */ = {
 			isa = PBXGroup;
 			children = (
 				27651B69296E385A00C6107B /* Cell */,
 				27651B5F296E359F00C6107B /* FinancialSelectionVeiwController.swift */,
 				27651B62296E35CC00C6107B /* FinancialSelectionPresenter.swift */,
 			);
-			path = FinancialSelection;
+			path = Debits;
 			sourceTree = "<group>";
 		};
 		27651B64296E363E00C6107B /* Utils */ = {
@@ -201,8 +201,8 @@
 			isa = PBXGroup;
 			children = (
 				27651B9E296F93A300C6107B /* Register */,
-				27651B61296E35C100C6107B /* FinancialSelection */,
-				27651B5E296E358900C6107B /* Debits */,
+				27651B61296E35C100C6107B /* Debits */,
+				27651B5E296E358900C6107B /* Description */,
 			);
 			path = View;
 			sourceTree = "<group>";
