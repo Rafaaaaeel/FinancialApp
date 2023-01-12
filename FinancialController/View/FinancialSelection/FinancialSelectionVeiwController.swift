@@ -1,11 +1,11 @@
 import UIKit
+import CoreData
 
 
 class FinancialSelectionVeiwController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, CodableViews {
     
-    
-    
-    var total = 5
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var total: [Debit]?
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout ()
@@ -15,8 +15,7 @@ class FinancialSelectionVeiwController: UIViewController, UICollectionViewDataSo
         layout.minimumLineSpacing = 8
         layout.minimumInteritemSpacing = 8
         
-        
-        
+
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.dataSource = self
         collection.delegate = self
@@ -29,6 +28,10 @@ class FinancialSelectionVeiwController: UIViewController, UICollectionViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("Yees")
     }
     
 }
@@ -51,17 +54,22 @@ extension FinancialSelectionVeiwController {
     
     func additional() {
         setupNavigatioBar()
+        fetchPeople()
     }
     
 }
 
 extension FinancialSelectionVeiwController {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return total
+        return total?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FinancialSelectionCell.identifier, for: indexPath) as! FinancialSelectionCell
+        if let debit = total {
+            cell.configure(with: debit[indexPath.item])
+        }
+        
         return cell
     }
     
@@ -75,7 +83,28 @@ extension FinancialSelectionVeiwController {
     }
     
     @objc func addDebit() {
-        let vc = UINavigationController(rootViewController: RegisterDebitViewController())
+        let vc = UINavigationController(rootViewController: RegisterDebitViewController(previousView: self))
         self.navigationController?.present(vc, animated: true)
     }
+    
+    private func fetchPeople() {
+        
+        let request = Debit.fetchRequest() as NSFetchRequest<Debit>
+        
+        // Filter by someone
+//        let pred = NSPredicate(format: "name CONTAINS %@", "R")
+//        let sort = NSSortDescriptor(key: "name", ascending: true )
+//        request.sortDescriptors = [sort]
+//        request.fetchLimit = 2
+//        request.fetchOffset = 4
+//        request.predicate = pred
+        
+        self.total = try! context.fetch(request)
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+        
+    }
 }
+
+

@@ -2,7 +2,7 @@ import UIKit
 
 class ImagesDataSource: NSObject {
     
-    var images: [String] = ["eurosign", "cart", "creditcard.fill", "dollarsign", "list.clipboard"]
+    var images: [String] = ["eurosign.circle.fill", "cart.fill", "creditcard.fill", "dollarsign.circle.fill", "list.clipboard.fill"]
     
     override init() {
         super.init()

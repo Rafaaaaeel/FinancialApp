@@ -43,7 +43,7 @@ class OptionsCell: UICollectionViewCell {
     func selected() {
         layer.cornerRadius = bounds.width / 2
         layer.borderWidth = 4
-        layer.borderColor =  .init(red: 245/255, green: 245/255, blue: 245/255, alpha: 0.7)
+        layer.borderColor =  .init(red: 67/255, green: 67/255, blue: 67/255, alpha: 0.7)
     }
     
     func deselect() {

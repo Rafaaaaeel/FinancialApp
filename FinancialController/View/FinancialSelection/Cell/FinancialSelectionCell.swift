@@ -49,5 +49,9 @@ extension FinancialSelectionCell: CodableViews {
         backgroundColor = .systemPurple
     }
     
+    func configure(with model: Debit) {
+        backgroundColor = .color(withData: model.color!)
+        label.text = model.name
+    }
     
 }
