@@ -2,7 +2,7 @@ import UIKit
 import CoreData
 
 
-class FinancialSelectionVeiwController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, CodableViews {
+class FinancialSelectionVeiwController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, CodableViews, RegisterDebitViewControllerDelegate {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var total: [Debit]?
@@ -43,7 +43,7 @@ extension FinancialSelectionVeiwController {
     
     func setupContraints() {
         let constraints = [
-            collectionView.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 1),
+            collectionView.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 0),
             collectionView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: collectionView.trailingAnchor, multiplier: 1),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -83,7 +83,9 @@ extension FinancialSelectionVeiwController {
     }
     
     @objc func addDebit() {
-        let vc = UINavigationController(rootViewController: RegisterDebitViewController(previousView: self))
+        let viewController = RegisterDebitViewController()
+        viewController.delegate = self
+        let vc = UINavigationController(rootViewController: viewController)
         self.navigationController?.present(vc, animated: true)
     }
     
@@ -105,6 +107,20 @@ extension FinancialSelectionVeiwController {
         }
         
     }
+    
+    private func removing() {
+        total?.forEach{ debit in
+            context.delete(debit)
+        }
+        try! self.context.save()
+        fetchPeople()
+    }
 }
 
+extension FinancialSelectionVeiwController {
+    func didSave() {
+        fetchPeople()
+        dismiss(animated: true, completion: nil)
+    }
+}
 

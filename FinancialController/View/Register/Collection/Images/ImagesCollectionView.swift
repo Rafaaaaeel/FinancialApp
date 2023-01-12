@@ -24,7 +24,10 @@ class ImagesCollectionView: UICollectionView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-//    (view.frame.size.width/6)-6
+    
+    func getImage(at index: Int) -> String {
+        return source.images[index]
+    }
 }
 
 extension ImagesCollectionView {

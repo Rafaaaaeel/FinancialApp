@@ -122,10 +122,10 @@
 		27651B9E296F93A300C6107B /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				27651BE5296FC9C700C6107B /* Presenter */,
+				27651BE4296FC9B600C6107B /* View */,
 				27651BA0296F93B400C6107B /* Collection */,
 				27651B9F296F93AA00C6107B /* Cell */,
-				27651B9A296E43BD00C6107B /* RegisterDebitViewController.swift */,
-				27651BB1296FB8E600C6107B /* RegisterSelectionPresenter.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -165,6 +165,22 @@
 				27651BAD296FA4BD00C6107B /* ImageAdapter.swift */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		27651BE4296FC9B600C6107B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				27651B9A296E43BD00C6107B /* RegisterDebitViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		27651BE5296FC9C700C6107B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				27651BB1296FB8E600C6107B /* RegisterSelectionPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		27C60C20296CF0F900B48BCE /* Data */ = {

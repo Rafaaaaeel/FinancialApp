@@ -24,7 +24,10 @@ class ColorsCollectionView: UICollectionView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-//    (view.frame.size.width/6)-6
+    
+    func getColor(at index: Int) -> UIColor {
+        return source.colors[index]
+    }
 }
 
 extension ColorsCollectionView {
