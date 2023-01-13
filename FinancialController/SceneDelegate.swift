@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
 //        let vc = UINavigationController(rootViewController: ViewController(presenter: Presenter()))
-        let vc = UINavigationController(rootViewController: FinancialSelectionVeiwController())
+        let vc = UINavigationController(rootViewController: FinancialSelectionVeiwController(presenter: FinancialSelectionPresenter()))
         window.rootViewController = vc
         window.makeKeyAndVisible()
         self.window = window

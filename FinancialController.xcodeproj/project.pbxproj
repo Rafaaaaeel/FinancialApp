@@ -12,7 +12,7 @@
 		27651B91296E433400C6107B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FD1B98296C5D5E0099F0FD /* AppDelegate.swift */; };
 		27651B92296E433400C6107B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FD1B9A296C5D5E0099F0FD /* SceneDelegate.swift */; };
 		27651B93296E433400C6107B /* FinancialSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27651B6A296E387900C6107B /* FinancialSelectionCell.swift */; };
-		27651B94296E433400C6107B /* FinancialSelectionVeiwController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27651B5F296E359F00C6107B /* FinancialSelectionVeiwController.swift */; };
+		27651B94296E433400C6107B /* FinancialSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27651B5F296E359F00C6107B /* FinancialSelectionViewController.swift */; };
 		27651B95296E433400C6107B /* FinancialSelectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27651B62296E35CC00C6107B /* FinancialSelectionPresenter.swift */; };
 		27651B96296E433400C6107B /* Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C60C28296CFF1E00B48BCE /* Footer.swift */; };
 		27651B97296E433400C6107B /* PaymentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C60C25296CF57E00B48BCE /* PaymentsCell.swift */; };
@@ -33,12 +33,15 @@
 		27651BE1296FC00B00C6107B /* Debit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27651BDD296FC00B00C6107B /* Debit+CoreDataProperties.swift */; };
 		27651BE2296FC00B00C6107B /* Payment+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27651BDE296FC00B00C6107B /* Payment+CoreDataClass.swift */; };
 		27651BE3296FC00B00C6107B /* Payment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27651BDF296FC00B00C6107B /* Payment+CoreDataProperties.swift */; };
+		27651BE82970DC2400C6107B /* DebitsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27651BE72970DC2400C6107B /* DebitsDataSource.swift */; };
+		27651BEA2970DD1200C6107B /* DebitsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27651BE92970DD1200C6107B /* DebitsCollectionView.swift */; };
+		27651BEC2970DEB000C6107B /* FinancialSelectionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27651BEB2970DEB000C6107B /* FinancialSelectionRepository.swift */; };
 		27FD1BA5296C5D600099F0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27FD1BA4296C5D600099F0FD /* Assets.xcassets */; };
 		27FD1BA8296C5D600099F0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27FD1BA6296C5D600099F0FD /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		27651B5F296E359F00C6107B /* FinancialSelectionVeiwController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialSelectionVeiwController.swift; sourceTree = "<group>"; };
+		27651B5F296E359F00C6107B /* FinancialSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialSelectionViewController.swift; sourceTree = "<group>"; };
 		27651B62296E35CC00C6107B /* FinancialSelectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialSelectionPresenter.swift; sourceTree = "<group>"; };
 		27651B65296E365700C6107B /* CodableViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableViews.swift; sourceTree = "<group>"; };
 		27651B67296E366B00C6107B /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -57,6 +60,9 @@
 		27651BDD296FC00B00C6107B /* Debit+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Debit+CoreDataProperties.swift"; path = "../../Debit+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		27651BDE296FC00B00C6107B /* Payment+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Payment+CoreDataClass.swift"; path = "../../Payment+CoreDataClass.swift"; sourceTree = "<group>"; };
 		27651BDF296FC00B00C6107B /* Payment+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Payment+CoreDataProperties.swift"; path = "../../Payment+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		27651BE72970DC2400C6107B /* DebitsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitsDataSource.swift; sourceTree = "<group>"; };
+		27651BE92970DD1200C6107B /* DebitsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebitsCollectionView.swift; sourceTree = "<group>"; };
+		27651BEB2970DEB000C6107B /* FinancialSelectionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialSelectionRepository.swift; sourceTree = "<group>"; };
 		27C60C25296CF57E00B48BCE /* PaymentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsCell.swift; sourceTree = "<group>"; };
 		27C60C28296CFF1E00B48BCE /* Footer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Footer.swift; sourceTree = "<group>"; };
 		27FD1B95296C5D5E0099F0FD /* FinancialController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinancialController.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,9 +100,11 @@
 		27651B61296E35C100C6107B /* Debits */ = {
 			isa = PBXGroup;
 			children = (
+				27651BE62970DC1400C6107B /* Collection */,
 				27651B69296E385A00C6107B /* Cell */,
-				27651B5F296E359F00C6107B /* FinancialSelectionVeiwController.swift */,
+				27651B5F296E359F00C6107B /* FinancialSelectionViewController.swift */,
 				27651B62296E35CC00C6107B /* FinancialSelectionPresenter.swift */,
+				27651BEB2970DEB000C6107B /* FinancialSelectionRepository.swift */,
 			);
 			path = Debits;
 			sourceTree = "<group>";
@@ -181,6 +189,15 @@
 				27651BB1296FB8E600C6107B /* RegisterSelectionPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		27651BE62970DC1400C6107B /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				27651BE72970DC2400C6107B /* DebitsDataSource.swift */,
+				27651BE92970DD1200C6107B /* DebitsCollectionView.swift */,
+			);
+			path = Collection;
 			sourceTree = "<group>";
 		};
 		27C60C20296CF0F900B48BCE /* Data */ = {
@@ -343,8 +360,11 @@
 				27651BB2296FB8E600C6107B /* RegisterSelectionPresenter.swift in Sources */,
 				27651BE0296FC00B00C6107B /* Debit+CoreDataClass.swift in Sources */,
 				27651BAC296FA44600C6107B /* ImagesDataSource.swift in Sources */,
+				27651BEC2970DEB000C6107B /* FinancialSelectionRepository.swift in Sources */,
 				27651BE1296FC00B00C6107B /* Debit+CoreDataProperties.swift in Sources */,
+				27651BE82970DC2400C6107B /* DebitsDataSource.swift in Sources */,
 				27651BAE296FA4BD00C6107B /* ImageAdapter.swift in Sources */,
+				27651BEA2970DD1200C6107B /* DebitsCollectionView.swift in Sources */,
 				27651BE3296FC00B00C6107B /* Payment+CoreDataProperties.swift in Sources */,
 				27651BA2296F93FE00C6107B /* ColorsDataSource.swift in Sources */,
 				27651B8F296E433400C6107B /* CodableViews.swift in Sources */,
@@ -354,7 +374,7 @@
 				27651B9B296E43BD00C6107B /* RegisterDebitViewController.swift in Sources */,
 				27651B9D296E4AC400C6107B /* OptionCell.swift in Sources */,
 				27651B93296E433400C6107B /* FinancialSelectionCell.swift in Sources */,
-				27651B94296E433400C6107B /* FinancialSelectionVeiwController.swift in Sources */,
+				27651B94296E433400C6107B /* FinancialSelectionViewController.swift in Sources */,
 				27651B95296E433400C6107B /* FinancialSelectionPresenter.swift in Sources */,
 				27651BE2296FC00B00C6107B /* Payment+CoreDataClass.swift in Sources */,
 				27651B96296E433400C6107B /* Footer.swift in Sources */,
