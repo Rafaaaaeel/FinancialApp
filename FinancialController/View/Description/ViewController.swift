@@ -11,7 +11,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(PaymentCell.self, forCellReuseIdentifier: PaymentCell.identifier)
-        tableView.register(FooterView.self, forHeaderFooterViewReuseIdentifier: "Footer")
         return tableView
     }()
     
@@ -39,8 +38,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func setupNavigatioBar() {
+        title = presenter.debit.name
         navigationController?.isNavigationBarHidden = false
-        navigationItem.rightBarButtonItem = .init(barButtonSystemItem: .add, target: self, action: #selector(addPerson))
+        navigationItem.rightBarButtonItem = .init(barButtonSystemItem: .add, target: self, action: #selector(addDebit))
     }
 }
 
@@ -51,67 +51,56 @@ extension ViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PaymentCell.identifier, for: indexPath) as! PaymentCell
-        if let payment = presenter.payments {
-            cell.configureCell(model: payment[indexPath.row])
+        if let payment = self.presenter.payments {
+            if payment.count > 0 {
+                cell.configureCell(model: payment[indexPath.row])
+            }
         }
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let action = UIContextualAction(style: .destructive, title: "Delete") { action, view, completionHandler in
-            if let payment = self.presenter.payments {
-                self.presenter.context.delete(payment[indexPath.row])
-                
-                try! self.presenter.context.save()
-                self.presenter.view = self
-                self.presenter.fetchRequest()
-            }
-        }
-        return UISwipeActionsConfiguration(actions: [action])
-        
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        tableView.dequeueReusableHeaderFooterView(withIdentifier: "Footer")
-        let view = FooterView()
-        var total = 0
-        if let payments = presenter.payments {
-            payments.forEach { payment in
-                total += payment.value?.intValue ?? 0
-            }
-        }
-        view.title.text = "Total: R$ \(total)"
-        return view
-    }
-    
+//
+//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//        let action = UIContextualAction(style: .destructive, title: "Delete") { action, view, completionHandler in
+//            if let payment = self.presenter.payments {
+//                let result = payment[indexPath.row].value?.intValue ?? 0 - (self.debit.total?.intValue ?? 0) == 0 ? nil : payment[indexPath.row].value?.intValue ?? 0 - (self.debit.total?.intValue ?? 0)
+//
+//                self.debit.total = NSDecimalNumber(integerLiteral: result ?? 0)
+//                self.presenter.context.delete(payment[indexPath.row])
+//
+//                try! self.presenter.context.save()
+//                self.presenter.view = self
+//                self.presenter.fetchRequest()
+//            }
+//        }
+//        return UISwipeActionsConfiguration(actions: [action])
+//
+//    }
+//
 }
 
 extension ViewController {
-    @objc
-    func addPerson() {
+    @objc func addDebit() {
+        showModal()
+    }
+    
+    private func showModal() {
         let alert = UIAlertController(title: "Add payment", message: "What is their name?", preferredStyle: .alert)
         alert.addTextField()
         alert.addTextField()
         let submitButton = UIAlertAction(title: "Save", style: .default) { action in
-            
             guard let name = alert.textFields![0].text else { return }
             guard let value = alert.textFields![1].text else { return }
-            
-            let newPayment = Payment(context: self.presenter.context)
-            newPayment.name = name
-            let finalValue = NSDecimalNumber(string: value)
-            newPayment.value = finalValue
-            
-            print("name: \(name)")
-            print("value: \(finalValue)")
-            
-            try! self.presenter.context.save()
-            self.presenter.fetchRequest()
-            self.presenter.view = self
+            self.savePayment(name: name, value: value)
         }
-        
+
         alert.addAction(submitButton)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func savePayment(name: String, value: String) {
+        presenter.savePayment(name: name, value: value)
+        presenter.view = self
+        presenter.fetchRequest()
     }
 }
 

@@ -2,14 +2,14 @@ import UIKit
 import CoreData
 
 
-class FinancialSelectionVeiwController: UIViewController, UICollectionViewDelegate, CodableViews, RegisterDebitViewControllerDelegate {
-    
+class FinancialSelectionVeiwController: UIViewController, DebitsAdapterDelegate, CodableViews, RegisterDebitViewControllerDelegate {
     
     var presenter: FinancialSelectionPresenter
     lazy var width = (view.frame.size.width/2.1)-3
     
     lazy var collectionView: DebitsCollectionView = {
-        let collection = DebitsCollectionView(width: width, spacing: 8)
+        let collection = DebitsCollectionView(width: width, spacing: 8, delegate: self)
+        collection.translatesAutoresizingMaskIntoConstraints = false
         return collection
     }()
     
@@ -25,6 +25,11 @@ class FinancialSelectionVeiwController: UIViewController, UICollectionViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadDebits()
     }
     
 }
@@ -78,5 +83,12 @@ extension FinancialSelectionVeiwController {
         loadDebits()
         dismiss(animated: true, completion: nil)
     }
+    
+    func didSelectDebit(at index: Int) {
+        let debit = collectionView.get(at: index)
+        let viewController = ViewController(presenter: Presenter(debit: debit))
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
 }
 

@@ -25,7 +25,13 @@ class FinancialSelectionPresenter {
     
     private func successHandler(debits: [Debit]) {
         view?.collectionView.add(debits: debits)
-        view?.collectionView.reloadData()
+        reloadCollectionFromMainThread()
+    }
+    
+    private func reloadCollectionFromMainThread() {
+        DispatchQueue.main.async {
+            self.view?.collectionView.reloadData()
+        }
     }
     
 }

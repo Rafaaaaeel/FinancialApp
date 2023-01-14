@@ -26,7 +26,6 @@ class FinancialSelectionCell: UICollectionViewCell {
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 20)
         label.textColor = .white
-        label.text = "R$ 1.200,49"
         return label
     }()
     
@@ -78,8 +77,16 @@ extension FinancialSelectionCell: CodableViews {
     func configure(with model: Debit) {
         backgroundColor = .color(withData: model.color!)
         titleLabel.text = model.name
-        let configuration = UIImage.SymbolConfiguration(scale: .large)
-        imageSelected.image = UIImage(systemName: model.image ?? "", withConfiguration: configuration)
+        imageSelected.image = UIImage(systemName: model.image ?? "", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
+        validateTotal(total: model.total)
+    }
+    
+    private func validateTotal(total: NSDecimalNumber?) {
+        if let total = total {
+            valueLabel.text = "R$ \(total)"
+        } else {
+            valueLabel.text = ""
+        }
     }
     
 }

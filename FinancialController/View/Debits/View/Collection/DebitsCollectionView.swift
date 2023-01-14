@@ -4,9 +4,18 @@ import UIKit
 class DebitsCollectionView: UICollectionView {
     
     var source: DebitsDataSource
+    var adapter: DebitsAdatpter
     
-    init(source: DebitsDataSource = DebitsDataSource(), width: Double, spacing: CGFloat) {
+    init(source: DebitsDataSource = DebitsDataSource(),
+         width: Double,
+         spacing: CGFloat,
+         adapter: DebitsAdatpter = DebitsAdatpter(),
+         delegate: DebitsAdapterDelegate) {
+        
         self.source = source
+        self.adapter = adapter
+        self.adapter.delegate = delegate
+        
         let layout = UICollectionViewFlowLayout ()
         layout.itemSize = CGSize(
             width: width,
@@ -25,12 +34,16 @@ class DebitsCollectionView: UICollectionView {
         source.add(debits: debits)
     }
     
+    func get(at index: Int) -> Debit {
+        source.get(at: index)
+    }
+    
 }
 
 extension DebitsCollectionView {
     func configure() {
         dataSource = source
-//        delegate = self
+        delegate = adapter
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .clear
         register(FinancialSelectionCell.self, forCellWithReuseIdentifier: FinancialSelectionCell.identifier)

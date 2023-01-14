@@ -17,6 +17,10 @@ class DebitsDataSource: NSObject {
         self.debits = debits
     }
     
+    func get(at index: Int) -> Debit {
+        return self.debits[index]
+    }
+    
 }
 
 extension DebitsDataSource: UICollectionViewDataSource {
