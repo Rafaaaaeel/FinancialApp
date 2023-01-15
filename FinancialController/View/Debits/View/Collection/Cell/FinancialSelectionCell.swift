@@ -71,7 +71,6 @@ extension FinancialSelectionCell: CodableViews {
     
     func additional() {
         layer.cornerRadius = 36
-        backgroundColor = .systemPurple
     }
     
     func configure(with model: Debit) {
@@ -82,7 +81,8 @@ extension FinancialSelectionCell: CodableViews {
     }
     
     private func validateTotal(total: NSDecimalNumber?) {
-        if let total = total {
+        print("Foo - total: \(total)")
+        if let total = total, total.intValue > 0 {
             valueLabel.text = "R$ \(total)"
         } else {
             valueLabel.text = ""

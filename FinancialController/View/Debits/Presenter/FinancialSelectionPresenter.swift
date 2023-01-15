@@ -25,6 +25,7 @@ class FinancialSelectionPresenter {
     
     private func successHandler(debits: [Debit]) {
         view?.collectionView.add(debits: debits)
+        repository.deleteAll(debits: debits)
         reloadCollectionFromMainThread()
     }
     

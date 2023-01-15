@@ -1,59 +1,52 @@
 import UIKit
 
 class PaymentCell: UITableViewCell {
+    
     static let identifier = "PaymentCell"
-    
-    let name: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+
+    lazy var paymentCellView: PaymentCellView = {
+        let view = PaymentCellView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
-    
-    let price: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .red
-        return label
-    }()
-    
-    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupView()
+        setup()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-
 }
 
-extension PaymentCell {
-    func setupView() {
-        setupHiearchy()
-        configContraints()
-    }
+extension PaymentCell: CodableViews{
     
     func setupHiearchy() {
-        addSubview(name)
-        addSubview(price)
+        addSubview(paymentCellView)
     }
 
-    func configContraints() {
+    func setupContraints() {
         let contraints = [
-            name.centerYAnchor.constraint(equalTo: centerYAnchor),
-            name.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
-            
-            price.leadingAnchor.constraint(equalTo: name.trailingAnchor, constant: 16),
-            price.centerYAnchor.constraint(equalTo: name.centerYAnchor)
+            paymentCellView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            paymentCellView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            paymentCellView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            paymentCellView.heightAnchor.constraint(equalToConstant: 90)
         ]
         NSLayoutConstraint.activate(contraints)
     }
     
-    func configureCell(model: Payment) {
-        name.text = model.name
-        price.text = "R$: \(model.value ?? 0)"
+    func configureCell(model: Payment, color: UIColor) {
+        paymentCellView.name.text = model.name
+        paymentCellView.price.text = "R$ \(model.value ?? 0)"
+        paymentCellView.priceBackgroundView.backgroundColor = color
+    }
+    
+    func selected() {
+        paymentCellView.backgroundColor = .systemGray4
+    }
+    
+    func deselected() {
+        paymentCellView.backgroundColor = .systemGray6
     }
 }

@@ -86,7 +86,7 @@ extension FinancialSelectionVeiwController {
     
     func didSelectDebit(at index: Int) {
         let debit = collectionView.get(at: index)
-        let viewController = ViewController(presenter: Presenter(debit: debit))
+        let viewController = PaymentsViewController(presenter: PaymentsPresenter(debit: debit))
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
